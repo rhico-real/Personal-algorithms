@@ -1,0 +1,23 @@
+public class Number_game{
+	private String firstName;
+	private String lastName;
+	private double monthlySalary;
+	
+	public Number_game(String firstName, String lastName, double monthlySalary) {
+		this.firstName=firstName;
+		this.lastName=lastName;
+		this.monthlySalary=monthlySalary;
+	}
+	
+	public String getfirstName() {
+		return firstName;
+	}
+	
+	public String getlastName() {
+		return lastName;
+	}
+	
+	public double getmonthlySalary() {
+		return monthlySalary;
+	}
+}

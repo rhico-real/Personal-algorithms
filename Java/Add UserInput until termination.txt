@@ -1,0 +1,30 @@
+import java.util.*;
+public class Number_game{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+	
+		double total=0;
+		while(true) {
+			System.out.print("GIVE ME A NUMBER> ");
+			double number=scanner.nextDouble();
+			
+			scanner.nextLine();
+			
+			total=total+number;
+			
+			System.out.println("");
+			
+			System.out.print("THE TOTAL IS "+total);
+			
+			System.out.println("");
+			
+			System.out.println("CONTINUE? Y OR N");
+			String choice=scanner.nextLine();
+			
+			if(choice.equals("n")) {
+				System.out.print("WALA NA FINISH NA");
+				System.exit(0);
+			}
+		}
+	}
+}

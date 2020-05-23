@@ -1,0 +1,28 @@
+import java.util.*;
+public class Number_game{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.print("GIVE ME A NUMBER> ");
+		String number=scanner.nextLine();
+		
+		System.out.println("");
+		
+		System.out.print("THIS IS THE REVERSED NUMBER: ");
+		
+		char[] array=number.toCharArray();
+		
+		for(int i=array.length-1;i>=0;i--) {
+			System.out.print(array[i]);
+		}
+		
+		System.out.println("");
+		
+		System.out.println("THIS IS THE PALINDROME NUMBER: ");
+		
+		System.out.print(number);
+		for(int j=array.length-2;j>=0;j--) {
+			System.out.print(array[j]);
+		}
+	}
+}

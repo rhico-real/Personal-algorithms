@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Number_game{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.print("GIVE ME A NUMBER> ");
+		double number=scanner.nextDouble();
+		
+		double thousands=Math.floor(number/1000);
+		double five_hundreds=Math.floor((number-(1000*thousands))/500);
+		double two_hundreds=Math.floor((number-((1000*thousands)+(500*five_hundreds)))/200);
+		double one_hundreds=Math.floor((number-((1000*thousands)+(500*five_hundreds)+(200*two_hundreds)))/100);
+		double fifties=Math.floor((number-((1000*thousands)+(500*five_hundreds)+(200*two_hundreds)+(100*one_hundreds)))/50);
+		double tens=Math.floor((number-((1000*thousands)+(500*five_hundreds)+(200*two_hundreds)+(100*one_hundreds)+(50*fifties)))/10);
+		double singko=Math.floor((number-((1000*thousands)+(500*five_hundreds)+(200*two_hundreds)+(100*one_hundreds)+(50*fifties)+(10*tens)))/5);
+		double piso=Math.floor((number-((1000*thousands)+(500*five_hundreds)+(200*two_hundreds)+(100*one_hundreds)+(50*fifties)+(10*tens))));
+		double cents=Math.floor((number-((1000*thousands)+(500*five_hundreds)+(200*two_hundreds)+(100*one_hundreds)+(50*fifties)+(10*tens)+(1*piso)))/0.25);
+		
+		System.out.println("ONE THOUSAND PESOS: "+thousands);
+		System.out.println("FIVE HUNDRED PESOS: "+five_hundreds);
+		System.out.println("TWO HUNDRED PESOS: "+two_hundreds);
+		System.out.println("ONE HUNDRED PESOS: "+one_hundreds);
+		System.out.println("FIFTY PESOS: "+fifties);
+		System.out.println("TEN PESOS: "+tens);
+		System.out.println("FIVE PESOS: "+singko);
+		System.out.println("ONE PESO: "+piso);
+		System.out.println("25 CENTS: "+cents);
+	}
+}

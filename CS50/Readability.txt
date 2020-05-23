@@ -1,0 +1,72 @@
+Implement a program that computes the approximate grade level needed to comprehend some text, per the below.
+
+$ ./readability
+Text: Congratulations! Today is your day. You're off to Great Places! You're off and away!
+Grade 3
+
+
+Basically, the program shows on what reading level someone is based
+on the sentence the user has input into.
+
+
+PROGRAM:
+import java.util.Scanner;
+
+public class LabTest2{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+
+		System.out.println("Give me a sentence");
+		String name=scanner.nextLine();
+
+		//sentences - start
+		int sentencesnum=0;
+		char[] sentences=name.toCharArray();
+		for(int m=0;m<sentences.length;m++) {
+			if(sentences[m]=='.' || sentences[m]=='!' || sentences[m]=='?') {
+				sentencesnum++;
+			}
+		}
+		//sentences - end
+
+		//words - start
+		String[] string=name.split("\\s+");
+		for(int i=0;i<string.length;i++) {
+			string[i]=string[i].replaceAll("[^a-zA-Z_]", "");
+		}
+
+		int words=0;
+		for(int j=0; j<string.length;j++) {
+			System.out.println(j+" word is "+string[j]);
+			words++;
+		}
+		//words - finish
+
+		//letters - start
+		int letters=0;
+		for(int k=0;k<string.length;k++){
+			for(int l=0;l<string[k].length();l++) {
+				letters++;
+			}
+		}
+		//letters - end
+
+		System.out.println("number of letters are "+letters);
+		System.out.println("number of words are "+words);
+		System.out.println("number of sentences are "+sentencesnum);
+
+		//Coleman-Liau index - start
+		double L=(letters*100)/words;
+		double S=(sentencesnum*100)/words;
+		double CLindex=0.0588 * L - 0.296 * S - 15.8;
+		int index=(int)Math.floor(CLindex);
+		//Coleman-Liau index - end
+
+		if(index<1) {
+			System.out.println("You are before Grade 1");
+		}
+		else {
+			System.out.println("You are in Grade "+index);	
+		}
+	}
+}

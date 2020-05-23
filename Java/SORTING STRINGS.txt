@@ -1,0 +1,59 @@
+import java.util.*;
+public class Number_game{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+
+		String words[]= {"2018-5755","2018-5753","2018-5754","2015-0001","2018-0001"};
+
+		int numerical[]=new int[words.length];
+
+		char ch;
+		int number;
+		for (int i=0;i<words.length;i++) {
+			int total=0;
+			for (int j=0;j<words[i].length();j++) {
+				ch=words[i].charAt(j);
+				number=ch;
+				total=total+number;	
+			}
+			numerical[i]=total;
+		}
+
+		char dash='-';
+		int num=dash;
+
+		System.out.println("THE DASH IS "+num);
+		System.out.print("[ ");
+		for(int k=0;k<numerical.length;k++) {
+			System.out.print(numerical[k]+" ");
+		}
+		System.out.print(" ]");
+		
+		int counter=0;
+		String temp;
+		int tempo;
+		int boolean_count=0;
+		Loop:
+			while(counter<words.length) {
+				for (int l=0;l<numerical.length-1;l++) {
+					if(numerical[l]>numerical[l+1]) {
+						tempo=numerical[l];
+						numerical[l]=numerical[l+1];
+						numerical[l+1]=tempo;
+
+						temp=words[l];
+						words[l]=words[l+1];
+						words[l+1]=temp;
+					}	
+				}
+				counter++;
+			}
+
+		System.out.print("[ ");
+		for(int r=0;r<words.length;r++) {
+			System.out.print(words[r]+" ");
+		}
+		System.out.print(" ]");
+
+	}
+}

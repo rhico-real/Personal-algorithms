@@ -1,0 +1,85 @@
+NOTE: This program calculates the days from today before christmas.
+
+Program and Algorithm by: Rhico abueme;
+
+function integerEquivalent(month){
+  let months=['january',
+  'february',
+  'march',
+  'april',
+  'may',
+  'june',
+  'july',
+  'august',
+  'september',
+  'october',
+  'november',
+  'december'];
+
+  for(i=0;i<=months.length-1;i++){
+    if(month==months[i]){
+      return i;
+    }
+  }
+
+}
+
+function daysLeftBeforeChristmas(month,day,year){
+  let today= new Date();
+  let monthNow=today.getMonth();
+  let dayNow=today.getDate();
+  let yearNow=today.getFullYear();
+
+  let months=['january',
+  'february',
+  'march',
+  'april',
+  'may',
+  'june',
+  'july',
+  'august',
+  'september',
+  'october',
+  'november',
+  'december'];
+
+  let months30=[];
+  let months31=[];
+
+  for(i=0;i<=months.length-1;i++){
+    if((i%2!=0 && i<7) || (i%2==0 && i>=7)){
+      months30.push(months[i]);
+    }
+    else{
+      months31.push(months[i]);
+    }
+  }
+
+  let christmasMonth=integerEquivalent(month);
+
+  let daysLeftArr=[];
+  let daysLeft=0;
+  for(i=monthNow;i<=christmasMonth;i++){
+    daysLeftArr.push(months[i]);
+  }
+
+  for(j=0;j<=daysLeftArr.length-1;j++){
+    for(k=0;k<=months30.length;k++){
+      if(daysLeftArr[j]==months30[k]){
+        daysLeft+=30;
+        break;
+      }
+    }
+    for(l=0;l<=months31.length;l++){
+      if(daysLeftArr[j]==months31[l]){
+        daysLeft+=31;
+      }
+    }
+  }
+
+  daysLeft-=dayNow;
+  alert('There are '+daysLeft+' days left before christmas');
+}
+
+daysLeftBeforeChristmas('december',25,2020);
+ 

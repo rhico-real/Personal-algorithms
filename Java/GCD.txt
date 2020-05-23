@@ -1,0 +1,35 @@
+import java.util.*;
+public class PinoyHenyo{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+
+		System.out.print("a > ");
+		int a=scanner.nextInt();
+
+		System.out.println("");
+
+		System.out.print("b > ");
+		int b=scanner.nextInt();
+
+		int room=10;
+		int array[]=new int[room];
+		
+		int counter=0;
+		for (int i=1;i<=a && i<=b;i++) {
+			if (a%i==0 && b%i==0) {
+				array[counter]=i;
+				counter++;
+			}	
+		}
+		
+		int counter2=0;
+		
+		for(int j=0;j<array.length;j++) {
+			if (array[j]!=0) {
+				counter2++;
+			}
+			
+		}
+		System.out.println("THE GCD IS "+array[counter2-1]);
+	}
+}

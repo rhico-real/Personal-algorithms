@@ -1,0 +1,27 @@
+public class Number_game{
+	private String Name;
+	private int time;
+	
+	public Number_game(String Name, int time) {
+		this.Name=Name;
+		this.time=time;
+	}
+	
+	public String getName() {
+		return Name;
+	}
+	
+	public int gettime() {
+		return time;
+	}
+	
+	public double getGrossPay(){
+		double grosspay=1000*time;
+		
+		if (time>40) {
+			grosspay=grosspay+(0.5*(time-40));
+		}
+		
+		return grosspay;
+	}
+}

@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class PinoyHenyo{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.println("FIRST NAME: ");
+		String firstName=scanner.nextLine();
+		
+		System.out.println("LAST NAME: ");
+		String lastName=scanner.nextLine();
+		
+		System.out.println("MONTHLY SALARY: ");
+		double monthlySalary=scanner.nextDouble();
+		
+		
+		Number_game employee=new Number_game(firstName, lastName, monthlySalary);
+		
+		System.out.println("===========================");
+		
+		System.out.println("FIRST NAME IS "+employee.getfirstName().toUpperCase());
+		System.out.println("LAST NAME IS "+employee.getlastName().toUpperCase());
+		System.out.println("MONTHLY SALARY IS "+employee.getmonthlySalary());
+	}
+}

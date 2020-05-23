@@ -1,0 +1,46 @@
+/*MAO NI ANG SOLUTION ARUN
+	DILI MAG DERETSO ANG CODE UG BASA AFTER SA nextInt().
+	KAILANGAN NATO UG scanner.nextLine()
+	KAY PARA NAAY TIGSALO SA SPACE NA NABILIN AFTER INPUTING THE NUMBER
+
+	FOR EXAMPLE, INIG MU INPUT TAG 1234 GAMIT ANG nextInt() KAY NAA PAY SPACE NABILIN AFTER 4.
+	MAO TO SYA ANG MA REGISTER SA IMUNG "CHOICE" NA STRING (BASED SA ILALOM).
+
+*/ 
+
+import java.util.*;
+public class Number_game{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		int total=0;
+		while(true) {
+			System.out.print("GIVE ME A NUMBER> ");
+			int number=scanner.nextInt();
+			
+			scanner.nextLine();                    //<-------------------take for example walaon nato ni na code
+			
+			total=total+number;
+			System.out.print("THE TOTAL IS "+total);
+			
+			System.out.println("");
+			System.out.println("");
+			
+			System.out.print("CONTINUE? Y OR N> ");
+			String choice=scanner.nextLine().toLowerCase();
+			
+			if (choice.equals("n")) {
+				break;
+			}
+			else if(choice.equals("y")) {
+				continue;
+			}
+			else {
+				System.out.println("Y OR N LANG GANI IINPUT LAHI PA JUD. HAY NAKO.");
+				System.exit(0);
+			}
+		}						//<-------------- ang igawas ani kay "Y OR N LANG GANI IINPUT LAHI PA JUD. HAY NAKO."
+	}							//mao na ang mugawas kay ang na store sa imung "choice" variable kay ang space na nabilin after nimo gi enter ang input sa nextInt();
+}
+
+//KAY INIG MU ENTER MAN GUD KAG "ENTER" SA IMUNG KEYBOARD AFTER NIMOG INPUT SA nextInt() KAY MAO NA ANG SPACE NA NABILIN

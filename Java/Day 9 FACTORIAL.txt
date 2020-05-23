@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class lab2{
+	public static void main(String args[]) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.println("Give me a number> ");
+		int num=scanner.nextInt();
+		
+		int factorial=1;
+		int initial_num=1;
+		
+		while(initial_num<=num) {
+			factorial*=initial_num;
+			
+			initial_num++;
+			
+		}
+		
+		System.out.println("The factorial is "+factorial);
+	}
+}

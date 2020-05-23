@@ -1,0 +1,39 @@
+import java.util.*;
+public class Exponentiation {
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.print("GIVE ME A BASE> ");
+		double base=scanner.nextDouble();
+		
+		System.out.print("GIVE ME AN EXPONENT> ");
+		double exponent=scanner.nextDouble();
+		
+		double power=1;
+		
+		if (exponent<0) {
+			while (exponent<0) {
+				power=power*base;
+				
+				exponent++;
+			}
+			
+			double rational_power=1/power;
+			
+			System.out.print(rational_power);
+			
+			System.exit(0);
+		}
+		
+		
+		while (exponent>0) {
+			power=power*base;
+			
+			exponent--;
+			
+		}
+		System.out.print(power);
+
+	}
+
+}

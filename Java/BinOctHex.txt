@@ -1,0 +1,98 @@
+import java.util.*;
+public class BinOctHex {
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+
+	BinOctHexLoop:
+		while(true) {
+		System.out.println("PRESS:");
+		System.out.println("1 - BINARY");
+		System.out.println("2 - OCTAL");
+		System.out.println("3 - HEXADECIMAL");
+		System.out.println("off - TURN OFF THE SYSTEM");
+		String number=scanner.nextLine();
+		
+		switch(number) {
+		case "1":
+			Binary();
+			break;
+		case "2":
+			Octal();
+			break;
+		case "3":
+			Hexadecimal();
+			break;
+		case "off":
+			break BinOctHexLoop;
+		default:
+			System.out.println("ERROR! PLEASE FOLLOW INSTRUCTION.");
+		}
+		}
+	}
+
+	public static void Binary() {
+		Scanner scanner=new Scanner(System.in);
+
+		System.out.println("YOU'VE CHOSE BINARY!");
+		System.out.println("NOW GIVE ME A DECIMAL ANG WE'LL CONVERT IT TO BINARY!");
+
+		String Bin="";
+		int number=scanner.nextInt();
+
+		char bin[]= {'0','1'};
+
+		while(number>0) {
+			int remainder=number%2;
+			Bin=bin[remainder]+Bin;
+
+			number=number/2;
+		}
+		System.out.println("Binary is "+Bin);
+		System.out.println("");
+
+
+	}
+
+	public static void Octal() {
+		Scanner scanner=new Scanner(System.in);
+
+		System.out.println("YOU'VE CHOSE OCTAL!");
+		System.out.println("NOW GIVE ME A DECIMAL ANG WE'LL CONVERT IT TO OCTAL!");
+
+		String Oct="";
+		int number=scanner.nextInt();
+
+		char oct[]= {'0','1','2','3','4','5','6','7'};
+
+		while(number>0) {
+			int remainder=number%8;
+			Oct=oct[remainder]+Oct;
+
+			number=number/8;
+		}
+		System.out.println("Octal is "+Oct);
+		System.out.println("");
+	}
+
+	public static void Hexadecimal() {
+		Scanner scanner=new Scanner(System.in);
+
+		System.out.println("YOU'VE CHOSE HEXADECIMAL!");
+		System.out.println("NOW GIVE ME A DECIMAL ANG WE'LL CONVERT IT TO HEXADECIMAL!");
+
+		String Hex="";
+		int number=scanner.nextInt();
+
+		char hex[]= {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+
+		while(number>0) {
+			int remainder=number%16;
+			Hex=hex[remainder]+Hex;
+
+			number=number/16;
+		}
+		System.out.println("Hexadecimal is "+Hex);
+		System.out.println("");
+	}
+
+}

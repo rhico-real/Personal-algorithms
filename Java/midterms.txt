@@ -1,0 +1,150 @@
+import java.util.*;
+public class MidtermExam {
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+
+		Loop:
+			while(true) {
+				System.out.println("CHOOSE FROM BELOW:");
+				System.out.println("1 - PRIME FACTORIZATION");
+				System.out.println("2 - GCF");
+				System.out.println("3 - LCD");
+				System.out.println("off - OFF");
+
+				String choice=scanner.nextLine();
+
+				switch(choice) {
+				case "1":
+					System.out.print("GIVE ME A NUMBER> ");
+					int number=scanner.nextInt();
+					
+					Prime_Factorization(number);
+					break;
+				case "2":
+					System.out.println("GIVE ME THE FIRST NUMBER> ");
+					int number1=scanner.nextInt();
+					
+					System.out.println("GIVE ME THE SECOND NUMBER> ");
+					int number2=scanner.nextInt();
+		
+					System.out.println("THE GCF IS "+GCF(number1,number2));
+	
+					break;
+				case "3":
+					System.out.println("GIVE ME THE FIRST NUMBER> ");
+					int number3=scanner.nextInt();
+					
+					System.out.println("GIVE ME THE SECOND NUMBER> ");
+					int number4=scanner.nextInt();
+					
+					System.out.println("THE LCD IS "+LCD(number3,number4));
+				
+					break;
+				case "off":
+					break Loop;
+				default:
+					System.out.println("OUT OF RANGE!");
+				}
+			}
+	}
+
+	public static int[] Prime_Factorization(int number) {
+		int number2=number;
+
+		int counter=0;
+		for (int i=2;i<number;i++) {
+			counter++;
+		}
+
+		boolean prime[]=new boolean[number+1];
+
+
+		for (int j=2;j*j<=number;j++) {
+			for(int k=2; j*k<=number;k++) {
+				prime[j*k]=true;
+			}
+		}
+
+		int counter2=0;
+		for (int h=2;h<=number;h++) {
+			if (prime[h]==false) {
+				counter2++;
+			}
+		}
+
+		int array[]=new int[counter2];
+
+		int k=0;
+		for (int h=2;h<=number;h++) {
+			if (prime[h]==false) {
+				array[k]=h;
+				k++;
+			}
+		}
+
+		int counter3=0;
+		for(int l=2; l<=number;l++) {
+			if (prime[l]==false) {
+				while(number%l==0) {
+					number=number/l;
+					counter3++;
+				}
+			}
+		}
+
+		int final_array[]=new int[counter3];
+
+		int counter4=0;
+		for(int m=2; m<=number2;m++) {
+			if (prime[m]==false) {
+				while(number2%m==0) {
+					number2=number2/m;
+					final_array[counter4]=m;
+					counter4++;
+				}
+			}
+		}
+
+		System.out.print("[ ");
+		for(int n=0;n<final_array.length;n++) {
+			System.out.print(final_array[n]+" ");
+		}
+		System.out.print(" ]");
+		
+		System.out.println("");
+		System.out.println("");
+		
+		return final_array;
+		
+		
+	}
+
+
+	public static int GCF(int number1, int number2) {
+		int factors_of_number1[]=Prime_Factorization(number1);
+		int factors_of_number2[]=Prime_Factorization(number2);
+		
+		int product=1;
+		for (int i=0;i<factors_of_number1.length;i++) {
+			for(int j=0;j<factors_of_number2.length;j++) {
+				if (factors_of_number1[i]==factors_of_number2[j]) {
+					product*=factors_of_number1[i];
+					factors_of_number1[i]=1;
+					factors_of_number2[j]=1;
+				}
+			}
+		}
+		
+		System.out.println("");
+		System.out.println("");
+		return product;
+	}
+
+	public static int LCD(int number1, int number2) {
+		System.out.println("");
+		System.out.println("");
+		
+		return (number1*number2)/GCF(number1,number2);
+	}
+
+}

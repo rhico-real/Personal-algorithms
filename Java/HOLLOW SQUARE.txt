@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class henyo{
+	public static void main(String args[]) {
+		Scanner scanner=new Scanner(System.in);
+
+		System.out.print("GIVE ME AN INTEGER> ");
+		int number=scanner.nextInt();
+
+		System.out.println("");
+
+		for (int i=0;i<number;i++) {
+			System.out.println("");
+			if(i==0 || i==number-1) {
+				for(int j=0;j<number;j++) {
+					System.out.print("* ");
+				}
+			}
+			else {
+				System.out.print("* ");
+				for(int k=0;k<=number;k++) {
+					System.out.print(" ");
+				}
+				System.out.print("* ");
+			}
+			
+		}
+	}
+}

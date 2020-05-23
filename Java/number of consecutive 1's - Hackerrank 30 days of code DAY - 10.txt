@@ -1,0 +1,43 @@
+This program prints the number of consecutive 1's of the binary
+representation of the number input by the user.
+
+import java.util.*;
+
+public class LabTest{
+	public static void main(String[] args) {
+		int i;
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.println("Give me a number");
+		
+		int number=scanner.nextInt();
+		
+		long binary=Long.parseLong(Long.toBinaryString(number));
+		
+		
+		long[] arraynum=new long[Long.toBinaryString(number).length()];
+		
+		int count=0;
+		while(binary>0) {
+			arraynum[count]=(long)binary%10;
+			count++;
+			binary=binary/10;
+		}
+		
+		int arraycount=0;
+		int arrayresult=0;
+		
+		
+		for(i=0;i<arraynum.length;i++) {
+			if(arraynum[i]==0){
+			    arraycount=0;
+			  }
+			  else{
+			    arraycount++;
+			    arrayresult=Math.max(arrayresult,arraycount);
+			  }
+		}
+		
+		System.out.println(arrayresult);
+	}
+}

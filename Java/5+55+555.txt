@@ -1,0 +1,50 @@
+import java.util.*;
+public class Number_game{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.print("GIVE ME A BASE> ");
+		int base=scanner.nextInt();
+		
+		System.out.println("");
+		
+		System.out.print("GIVE ME A REPETITION> ");
+		int repetition=scanner.nextInt();
+		
+		int array[]=new int[repetition];
+		
+		int power=1;
+		
+		int exponent=0;
+		int total=0;
+		int base2;
+		
+		int counter=0;
+		for (int i=0;i<repetition;i++) {
+			while (exponent>0) {
+				power=power*10;
+				
+				exponent--;
+			}
+			
+			base2=base*power;
+			total=total+base2;
+			
+			array[counter]=total;
+			exponent++;
+			counter++;
+			
+		}
+		
+		int total_number=0;
+		for(int j=0;j<array.length;j++) {
+			total_number=total_number+array[j];
+			
+			System.out.println("ARRAY ELEMENT: "+array[j]);
+		}
+		
+		System.out.println("");
+		
+		System.out.print("THE TOTAL IS "+total_number);
+	}
+}

@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class PinoyHenyo{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.println("GIVE ME A WORD OR A SENTENCE:");
+		String input=scanner.nextLine().toLowerCase();
+		
+		char[] characters=input.toCharArray();
+		
+		char[] vowels= {'a','e','i','o','u'};
+		
+		int vowel_count=0;
+		for (int i=0;i<characters.length;i++) {
+			for(int j=0;j<vowels.length;j++) {
+				if(characters[i]==(vowels[j])) {
+					vowel_count++;
+				}
+			}
+		}
+		
+		System.out.println("THE NUMBER OF VOWELS ARE "+vowel_count);	}
+}

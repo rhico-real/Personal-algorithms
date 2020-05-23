@@ -1,0 +1,70 @@
+import java.util.*;
+public class PinoyHenyo{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+
+		int number=50;
+		int number2=number;
+		
+		int counter=0;
+		for (int i=2;i<number;i++) {
+			counter++;
+		}
+
+		boolean prime[]=new boolean[number+1];
+
+
+		for (int j=2;j*j<=number;j++) {
+			for(int k=2; j*k<=number;k++) {
+				prime[j*k]=true;
+			}
+		}
+
+		int counter2=0;
+		for (int h=2;h<=number;h++) {
+			if (prime[h]==false) {
+				counter2++;
+			}
+		}
+
+		int array[]=new int[counter2];
+
+		int k=0;
+		for (int h=2;h<=number;h++) {
+			if (prime[h]==false) {
+				array[k]=h;
+				k++;
+			}
+		}
+
+		int counter3=0;
+		for(int l=2; l<=number;l++) {
+			if (prime[l]==false) {
+				while(number%l==0) {
+					number=number/l;
+					counter3++;
+					System.out.println("number is "+l);
+				}
+			}
+		}
+		
+		int final_array[]=new int[counter3];
+		
+		int counter4=0;
+		for(int m=2; m<=number2;m++) {
+			if (prime[m]==false) {
+				while(number2%m==0) {
+					number2=number2/m;
+					final_array[counter4]=m;
+					counter4++;
+				}
+			}
+		}
+		
+		System.out.print("[ ");
+		for(int n=0;n<final_array.length;n++) {
+			System.out.print(final_array[n]+" ");
+		}
+		System.out.print(" ]");
+	}
+}

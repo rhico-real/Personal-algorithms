@@ -1,0 +1,22 @@
+import java.util.Arrays;
+import java.util.Scanner;
+public class PinoyHenyo{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.println("GIVE ME A WORD WITH DASHES");
+		
+		String string=scanner.nextLine().replaceAll("-", " ");;
+		
+		String[] words=string.split(" ");
+		
+		for(int i=0;i<words.length;i++) {
+			words[i]=words[i].substring(0,1).toUpperCase()+words[i].substring(1).toLowerCase();
+		}
+		
+		String newString=Arrays.toString(words);
+		newString=newString.substring(1, newString.length()-1).replaceAll(", ","");
+		
+		System.out.println(newString);
+	}
+}

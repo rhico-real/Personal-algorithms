@@ -1,0 +1,24 @@
+import java.util.*;
+public class Number_game{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+
+		int array[]= {1,2,5,4,3};
+
+		int temp;
+		int counter=0;
+		while(counter<array.length) {
+			for (int i=0;i<array.length-1;i++) {
+				if (array[i]>array[i+1]) {
+					temp=array[i];
+					array[i]=array[i+1];
+					array[i+1]=temp;
+				}
+			}
+			counter++;
+		}
+		System.out.println("THE MAXIMUM NUMBER IS "+array[array.length-1]);
+		System.out.println("THE 2ND MAXIMUM NUMBER IS "+array[array.length-2]);
+		System.out.println("THE 3RD MAXIMUM NUMBER IS "+array[array.length-3]);
+	}
+}

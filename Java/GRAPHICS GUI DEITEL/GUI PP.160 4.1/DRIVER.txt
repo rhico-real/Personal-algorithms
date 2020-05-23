@@ -1,0 +1,15 @@
+import javax.swing.JFrame;
+
+public class PinoyHenyo{
+	public static void main(String[] args) {
+		Number_game panel=new Number_game();
+		
+		JFrame frame=new JFrame();
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.add(panel);
+		frame.setSize(250, 250);
+		frame.setVisible(true);
+	}
+}

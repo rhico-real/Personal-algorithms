@@ -1,0 +1,72 @@
+import java.util.*;
+
+public class henyo{
+	public static void main(String args[]) {
+		Scanner scanner=new Scanner(System.in);
+
+		System.out.println("PROCEED?");
+		String choice=scanner.nextLine();
+		
+		if(choice.equals("yes")) {
+			System.out.println("GIVE ME A NUMBER> ");
+			double number=scanner.nextDouble();
+			
+			
+			Loop:
+				while(true) {
+					System.out.println("");
+					
+					System.out.println("add, minus, times, or divide?");				//Let's call this block "A"
+					
+					String EmptyOperations2=scanner.nextLine();							//this is intended so it will not repeat block "A" twice
+					String operations=scanner.nextLine();
+
+					switch(operations) {
+					case "add":
+						System.out.println("Give me another number> ");
+						double addnumber2=scanner.nextDouble();
+						
+						number+=addnumber2;
+						System.out.println("THE RESULT IS "+number);
+
+						break;
+					case "minus":
+							System.out.print("Give me another number> ");
+							double minusnumber2=scanner.nextDouble();
+							
+							number-=minusnumber2;
+							System.out.println("THE RESULT IS "+number);
+							
+							break;
+					case "times":
+							System.out.print("Give me another number> ");
+							double timesnumber2=scanner.nextDouble();
+							
+							number*=timesnumber2;
+							System.out.println("THE RESULT IS "+number);
+							
+							break;
+					case "divide":
+							System.out.print("Give me another number> ");
+							double dividenumber2=scanner.nextDouble();
+							
+							number/=dividenumber2;
+							System.out.println("THE RESULT IS "+number);
+							
+							break;
+							
+					case "off":
+							System.out.println("Oks");
+							
+							break Loop;
+
+					}
+				}
+		}
+		else {
+			System.out.println("oks");
+			System.exit(0);
+		}
+		
+		}
+	}

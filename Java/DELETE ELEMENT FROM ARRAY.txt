@@ -1,0 +1,72 @@
+import java.util.*;
+public class Number_game{
+	static int array[]= new int[5];
+	static int Counter=0;
+
+	public static void main(String [] args) {
+		Scanner scanner=new Scanner(System.in);
+		Loop:
+			while(true) {
+				System.out.println("CHOOSE FROM BELOW!");
+				System.out.println("1 - ADD");
+				System.out.println("2 - DELETE");
+				System.out.println("OFF - OFF");
+
+				String choice=scanner.nextLine().toLowerCase();
+
+				switch(choice) {
+				case"1":
+					Add();
+					break;
+				case"2":
+					delete();
+					break;
+				case"off":
+					break Loop;
+				}
+			}
+	}
+
+	public static void Add() {
+		Scanner scanner=new Scanner(System.in);
+
+		System.out.println("INPUT 5 ELEMENTS:");
+
+		for (int i=0;i<array.length;i++) {
+			array[i]=scanner.nextInt();
+		}
+
+		System.out.println("");
+
+		System.out.println("THESE ARE THE ELEMENTS");
+		for (int l=0;l<array.length;l++) {
+			System.out.println(array[l]);
+		}
+		System.out.println("");
+	}
+
+	public static void delete() {
+		Scanner scanner=new Scanner(System.in);
+
+		System.out.println("GIVE ME THE ORDER OF THE ELEMENT YOU WANT TO DELETE: ");
+		int order=scanner.nextInt();
+
+		System.out.println("");
+
+		for (int j=order-1;j<array.length-1;j++) {
+			array[j]=array[j+1];
+		}
+
+		array[array.length-1]=0;
+
+		System.out.println("");
+
+		System.out.println("THIS IS THE NEW ORDER!");
+
+		for(int k=0;k<array.length-1;k++) {
+			if (array[k]!=0) {
+				System.out.println(array[k]);
+			}
+		}
+	}
+}

@@ -1,0 +1,52 @@
+This program verifies if the user input is a valid VISA credit
+card number.  
+
+
+let number=window.prompt("Enter a VISA credit card number: ");
+let number_copy=number;
+let nDigits=0;
+
+while(number!=0){
+  number=Math.floor(number/10);
+  nDigits++;
+}
+
+if(nDigits<13 || nDigits>16){
+  console.log("INVALID");
+}
+else{
+  let exponent=2;
+  let exponent_copy=1;
+
+  let add_digit=0;
+
+  let total_digit=0;
+  let total_digit_copy=0;
+
+  while(exponent<=16){
+    let new_number=Math.floor(number_copy/Math.pow(10,exponent-1)%10)*2;
+
+    if(new_number>=10){
+      while(new_number){
+        add_digit+=new_number%10;
+        new_number=Math.floor(new_number/10);
+      }
+    }
+
+    total_digit+=new_number;
+    exponent+=2;
+  }
+
+  while(exponent_copy<=16){
+    let new_number=Math.floor(number_copy/Math.pow(10,exponent_copy-1)%10);
+
+    total_digit_copy+=new_number;
+    exponent_copy+=2;
+  }
+
+  let total=total_digit+total_digit_copy+add_digit;
+
+  if(total%10==0){
+    console.log("this is a valid VISA credit card");
+  }
+}

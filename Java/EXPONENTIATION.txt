@@ -1,0 +1,22 @@
+import java.util.*;
+public class Number_game{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.print("GIVE ME A BASE> ");
+		int base=scanner.nextInt();
+		
+		System.out.print("GIVE ME AN EXPONENT> ");
+		int exponent=scanner.nextInt();
+		
+		
+		int power=1;
+		while(exponent!=0) {
+			power=power*base;
+			
+			exponent--;
+		}
+		
+		System.out.println("THE VALUE IS "+power);
+	}
+}

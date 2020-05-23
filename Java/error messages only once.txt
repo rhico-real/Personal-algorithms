@@ -1,0 +1,28 @@
+import java.util.*;
+public class Number_game{
+	public static void main(String[] args ) {
+		Scanner scanner=new Scanner(System.in);
+		
+		int array[]= {1,2,3,4,5};
+		
+		System.out.print("GIVE ME A VALIDATION NUMBER> ");
+		int number=scanner.nextInt();
+		
+		System.out.println("");
+		
+		int counter=0;
+		for (int i=0;i<array.length;i++) {
+			if (number!=array[i]) {
+				counter++;
+				continue;
+			}
+			if (number==array[i]) {
+				System.out.println("IT EXISTS!");
+			}
+		}
+		
+		if (counter==array.length) {
+			System.out.println("IT DOES NOT EXIST");
+		}
+	}
+}

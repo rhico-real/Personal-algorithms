@@ -1,0 +1,40 @@
+>> Dictionaries and HashMaps (Day 8)
+
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class lab2{
+	public static void main(String args[]) {
+		Scanner scanner=new Scanner(System.in);
+
+		HashMap<String, Integer> hashmap=new HashMap<String, Integer>();
+
+		System.out.println("Give me the number of turns> ");
+		int turns=scanner.nextInt();
+
+		for(int i=0; i<turns; i++) {
+			System.out.println("Give me a string> ");
+			String name=scanner.next();
+
+			System.out.println("Give me a number> ");
+			int number=scanner.nextInt();
+
+			hashmap.put(name, number);
+		}
+		
+		Loop:
+		while(true) {
+			System.out.println("Give me a query> ");
+			String query=scanner.next();
+
+			if(hashmap.containsKey(query)) {
+				System.out.print(query+"="+hashmap.get(query));
+			}
+
+			else {
+				System.out.println("Not Found");
+			}
+		}
+	}
+}

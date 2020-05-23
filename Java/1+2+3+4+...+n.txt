@@ -1,0 +1,17 @@
+import java.util.*;
+public class Number_game{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.print("GIVE ME A NUMBER> ");
+		int number=scanner.nextInt();
+		
+		int total=0;
+		
+		for (int i=1;i<=number;i++) {
+			total=total+i;
+		}
+		
+		System.out.print("THE TOTAL IS "+total);
+	}
+}

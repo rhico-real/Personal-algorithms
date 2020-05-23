@@ -1,0 +1,172 @@
+Note: WALA PA NAHUMAN. KAILANGAN PA I TAKE CONSIDERATION 
+      ANG FEBRUARY NA NAAY 28 OR 29 
+
+function monthEquivalent(month){
+  let months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  for(i=0;i<=months.length;i++){
+    if(month==months[i]){
+      return i;
+    }
+  }
+} //Calculates the relative integer equivalent of today's month;
+
+function daysPassed(month){
+  let monthNum=monthEquivalent(month);
+  newMonthNow=monthNum-1;
+
+  let months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  let months31=[];
+  let months30=[];
+  for(i=0;i<=months.length-1;i++){
+    if((i%2==0 && i<7) || (i%2!=0 && i>=7)){
+      months31.push(months[i]);
+    }
+
+    if((i%2==1 && i<7) || (i%2==0 && i>=7)){
+      months30.push(months[i]);
+    }
+  }
+
+  let monthArr=[];
+
+  for(k=0;k<=newMonthNow;k++){
+    monthArr.push(months[k]);
+  }
+
+  let daysPassed=0;
+
+  for(m=0;m<monthArr.length;m++){
+    for(n=0;n<months31.length;n++){
+      if(monthArr[m]==months31[n]){
+        daysPassed+=31;
+      }
+    }
+    for(p=0;p<months30.length;p++){
+      if(monthArr[m]==months30[p]){
+        daysPassed+=30;
+      }
+    }
+  }
+
+  return daysPassed;
+} //Calculates days from January up to the month before today;
+
+function daysOld(month, day, year){
+  let today=new Date();
+  let monthNow=today.getMonth();
+  let dayNow=today.getDate();
+  let yearNow=today.getFullYear();
+
+  let monthNum=monthEquivalent(month);
+
+  let months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  let months31=[];
+  let months30=[];
+  for(i=0;i<=months.length-1;i++){
+    if((i%2==0 && i<7) || (i%2!=0 && i>=7)){
+      months31.push(months[i]);
+    }
+
+    if((i%2==1 && i<7) || (i%2==0 && i>=7)){
+      months30.push(months[i]);
+    }
+  }
+
+  let daysOld;
+  let LeapYears=0;
+
+  if(monthNum==monthNow){
+    for(i=year;i<=yearNow;i++){
+      if(i%4==0){
+        LeapYears++;
+      }
+    }
+    daysOld=365*(yearNow-year)+(dayNow-day)+LeapYears;
+    console.log("You are now "+daysOld+" days old");
+  }
+
+  else{
+
+    if(monthNum>monthNow){
+      let initialCount=0;
+      let i=monthNow;
+
+      while(i){
+        i++;
+        initialCount++;
+
+        if(i>=monthNum){
+          break;
+        }
+      }
+
+      let tempMonth=[];
+
+      for(j=monthNow+1;j<=monthNum;j++){
+        tempMonth.push(months[j]);
+      }
+
+      let daysInMonths=0;
+
+      for(m=0;m<tempMonth.length;m++){
+        for(n=0;n<months31.length;n++){
+          if(tempMonth[m]==months31[n]){
+            daysInMonths+=31;
+          }
+        }
+        for(p=0;p<months30.length;p++){
+          if(tempMonth[m]==months30[p]){
+            daysInMonths+=30;
+          }
+        }
+      }
+
+      let daysOld=365*(yearNow-year)+LeapYears-daysInMonths;
+      console.log('You are now '+daysOld+' days old');
+    }
+
+    if(monthNum<monthNow){
+      let initial=0;
+      let i=monthNum;
+
+      while(i){
+        i++;
+        initial++;
+
+        if(i>=monthNow){
+          break;
+        }
+      }
+
+      let tempMonth=[];
+
+      for(j=monthNum;j<=monthNow-1;j++){
+        tempMonth.push(months[j]);
+      }
+
+      let daysInMonths=0;
+
+      for(m=0;m<tempMonth.length;m++){
+        for(n=0;n<months31.length;n++){
+          if(tempMonth[m]==months31[n]){
+            daysInMonths+=31;
+          }
+        }
+        for(p=0;p<months30.length;p++){
+          if(tempMonth[m]==months30[p]){
+            daysInMonths+=30;
+          }
+        }
+      }
+
+      let daysOld=365*(yearNow-year)+LeapYears+daysInMonths-(day-dayNow);
+      console.log('You are now '+daysOld+' days old');
+    }
+
+  }
+}
+
+daysOld('April',1,2020);

@@ -1,0 +1,37 @@
+import java.util.*;
+public class PinoyHenyo{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.print("ENTER A BINARY> ");
+		long number=scanner.nextLong();
+		
+		System.out.println("");
+		
+		long decimal=0;
+		int exponent=0;
+		
+		int power=1;
+		
+		long temp;
+		while(true) {
+			temp=number%10;
+			
+			while(exponent>0) {
+				power=power*2;
+				exponent--;
+			}
+			
+			decimal=decimal+temp*power;
+			number=number/10;
+			
+			exponent++;
+			
+			if (number==0) {
+				break;
+			}
+			
+		}
+		System.out.print("THE DECIMAL EQUIVALENT IS "+decimal);
+	}
+}

@@ -1,0 +1,35 @@
+NOTE: This program will prompt the user to input integers and 
+	it will also sort all the integers input by the user.
+	Only integers are allowed to be input. 
+	If the input is a string or other, the program will 
+	alert that the user must only input integers.
+
+Program and Algorithm by: Rhico Abueme;
+
+let integerArr=[];
+
+let boolean=true;
+  while(boolean){
+    let input=window.prompt('Give me any integer and I will sort. Type 00 to end');
+    input=parseInt(input);
+
+    integerArr.push(input);
+
+    if(isNaN(input)==true){
+      alert('integers only')
+      integerArr.pop();
+      boolean=false;
+    }
+
+    if(input==00){
+      integerArr.pop();
+      boolean=false;
+    }
+
+  }
+
+integerArr.sort(function(a,b){
+  return a-b;
+});
+
+console.log(integerArr);

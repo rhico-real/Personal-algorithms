@@ -1,0 +1,28 @@
+import java.util.*;
+public class Number_game{
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+		System.out.print("GIVE ME A NUMBER> ");
+		double number=scanner.nextDouble();
+		
+		scanner.nextLine();
+		
+		if(number<0) {
+			System.out.print("YOUR NUMBER IS A NEGATIVE NUMBER!");
+			System.exit(0);
+		}
+		
+		if(number%1!=0){
+			System.out.print("YOUR NUMBER IS NOT AN INTEGER!");
+			System.exit(0);
+		}
+		
+		double factorial=1;
+		for(double i=number;i>1;i--) {
+			factorial=factorial*i;
+		}
+		
+		System.out.print("THE FACTORIAL IS "+factorial);
+	}
+}
